@@ -19,7 +19,10 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"></noscript>
     <link rel="preload" as="image"
-          imagesrcset="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405269.jpg?k=7a72bdf5496d62716bc5126aaee5ec4380e64a883dcba1a34fe4628e2a7a457f&o= 1920w"
+          href="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_2160/v1782075329/central-hotel/central-hotel-hero.jpg"
+          imagesrcset="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_768/v1782075329/central-hotel/central-hotel-hero.jpg 768w,
+                       https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_1440/v1782075329/central-hotel/central-hotel-hero.jpg 1440w,
+                       https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_2160/v1782075329/central-hotel/central-hotel-hero.jpg 2160w"
           imagesizes="100vw"
           fetchpriority="high">
 
@@ -505,6 +508,24 @@
             .blur-word { animation:fadeUp 0.4s ease forwards; }
             .ticker-track { animation:none; }
         }
+
+        /* map click-to-load */
+        .map-placeholder {
+            width:100%; height:100%; min-height:460px;
+            background:var(--dark2);
+            border:1px solid rgba(242,244,248,0.07);
+            display:flex; align-items:center; justify-content:center;
+            cursor:pointer;
+            transition:background 0.25s;
+        }
+        .map-placeholder:hover { background:rgba(37,99,168,0.12); }
+        .map-ph-inner {
+            display:flex; flex-direction:column; align-items:center; gap:14px;
+            color:rgba(242,244,248,0.45);
+            font-family:var(--font-s); font-size:11px; letter-spacing:0.16em;
+            text-transform:uppercase;
+        }
+        .map-frame-hidden { display:none; width:100%; height:460px; border:0; }
     </style>
 </head>
 <body>
@@ -512,8 +533,8 @@
 <!-- NAV -->
 <nav id="navbar">
     <div class="nav-logo-wrap">
-        <img src="https://res.cloudinary.com/dr63qmw21/image/upload/v1782075328/central-hotel/central-hotel-logo-white.png"
-             alt="Hotel Central" class="nav-logo-img">
+        <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_300/v1782075328/central-hotel/central-hotel-logo-white.png"
+             alt="Hotel Central" class="nav-logo-img" width="147" height="66">
     </div>
     <div class="nav-center">
         <a href="#home"     class="nav-link">Home</a>
@@ -540,11 +561,24 @@
     <div class="hero-curtain-l"></div>
     <div class="hero-curtain-r"></div>
     <div class="hero-bg" id="heroBg">
-        <img class="hero-bg-img"
-             src="https://res.cloudinary.com/dr63qmw21/image/upload/v1782075329/central-hotel/central-hotel-hero.jpg"
-             alt="Hotel Central Vlorë exterior"
-             fetchpriority="high"
-             loading="eager">
+        <picture>
+            <source type="image/avif"
+                srcset="https://res.cloudinary.com/dr63qmw21/image/upload/f_avif,q_auto,w_768/v1782075329/central-hotel/central-hotel-hero.jpg 768w,
+                        https://res.cloudinary.com/dr63qmw21/image/upload/f_avif,q_auto,w_1440/v1782075329/central-hotel/central-hotel-hero.jpg 1440w,
+                        https://res.cloudinary.com/dr63qmw21/image/upload/f_avif,q_auto,w_2160/v1782075329/central-hotel/central-hotel-hero.jpg 2160w"
+                sizes="100vw">
+            <source type="image/webp"
+                srcset="https://res.cloudinary.com/dr63qmw21/image/upload/f_webp,q_auto,w_768/v1782075329/central-hotel/central-hotel-hero.jpg 768w,
+                        https://res.cloudinary.com/dr63qmw21/image/upload/f_webp,q_auto,w_1440/v1782075329/central-hotel/central-hotel-hero.jpg 1440w,
+                        https://res.cloudinary.com/dr63qmw21/image/upload/f_webp,q_auto,w_2160/v1782075329/central-hotel/central-hotel-hero.jpg 2160w"
+                sizes="100vw">
+            <img class="hero-bg-img"
+                src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_2160/v1782075329/central-hotel/central-hotel-hero.jpg"
+                alt="Hotel Central Vlorë exterior"
+                fetchpriority="high"
+                loading="eager"
+                width="2160" height="1440">
+        </picture>
     </div>
     <div class="hero-glow"></div>
     <div class="hero-overlay"></div>
@@ -637,7 +671,7 @@
     </div>
     <div class="rooms-grid">
         <a href="deluxe-double.html" class="room-card reveal">
-            <img class="room-card-img" src="https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7664deluxe-3.webp" alt="Deluxe Double Room" loading="lazy">
+            <img class="room-card-img" src="https://res.cloudinary.com/dr63qmw21/image/fetch/f_auto,q_auto,w_900/https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7664deluxe-3.webp" alt="Deluxe Double Room" width="900" height="600" loading="lazy">
             <div class="room-card-body">
                 <div class="room-card-label" data-i18n="r1label"></div>
                 <div class="room-card-name"  data-i18n="r1name"></div>
@@ -648,7 +682,7 @@
             </div>
         </a>
         <a href="deluxe-triple-room.html" class="room-card reveal">
-            <img class="room-card-img" src="https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7677Photo%20(90).webp" alt="Deluxe Triple Room" loading="lazy">
+            <img class="room-card-img" src="https://res.cloudinary.com/dr63qmw21/image/fetch/f_auto,q_auto,w_900/https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7677Photo%20(90).webp" alt="Deluxe Triple Room" width="900" height="600" loading="lazy">
             <div class="room-card-body">
                 <div class="room-card-label" data-i18n="r2label"></div>
                 <div class="room-card-name"  data-i18n="r2name"></div>
@@ -659,7 +693,7 @@
             </div>
         </a>
         <a href="economy-twin.html" class="room-card reveal">
-            <img class="room-card-img" src="https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7674Photo%20(70).webp" alt="Economy Twin Room" loading="lazy">
+            <img class="room-card-img" src="https://res.cloudinary.com/dr63qmw21/image/fetch/f_auto,q_auto,w_900/https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7674Photo%20(70).webp" alt="Economy Twin Room" width="900" height="600" loading="lazy">
             <div class="room-card-body">
                 <div class="room-card-label" data-i18n="r3label"></div>
                 <div class="room-card-name"  data-i18n="r3name"></div>
@@ -670,7 +704,7 @@
             </div>
         </a>
         <a href="booking.html" class="room-card reveal">
-            <img class="room-card-img" src="https://res.cloudinary.com/dr63qmw21/image/upload/v1782075329/central-hotel/central-hotel-hero.jpg" alt="Hotel Central Vlorë" loading="lazy">
+            <img class="room-card-img" src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_900/v1782075329/central-hotel/central-hotel-hero.jpg" alt="Hotel Central Vlorë" width="900" height="600" loading="lazy">
             <div class="room-card-body">
                 <div class="room-card-label" data-i18n="r4label"></div>
                 <div class="room-card-name"  data-i18n="r4name"></div>
@@ -687,7 +721,7 @@
 <section class="spa" id="breakfast">
     <div class="spa-inner">
         <div class="spa-img reveal-left">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405248.jpg?k=122be2032ca84a4603b27691cfca867a811b86ce3848a3066b8cf6c71ac52b29&o=" alt="Hotel Central breakfast" loading="lazy">
+            <img src="https://res.cloudinary.com/dr63qmw21/image/fetch/f_auto,q_auto,w_900/https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405248.jpg" alt="Hotel Central breakfast" width="900" height="600" loading="lazy">
         </div>
         <div class="spa-content reveal-right">
             <span class="section-label" data-i18n="spaLabel"></span>
@@ -713,7 +747,7 @@
             <a href="booking.html" class="rest-cta" data-i18n="reserve"></a>
         </div>
         <div class="rest-img reveal-right">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405281.jpg?k=4b3a69b616d48303c65bd7087b48624328462e64becd61f85bfc34ee1883e234&o=" alt="Hotel Central bar and lounge" loading="lazy">
+            <img src="https://res.cloudinary.com/dr63qmw21/image/fetch/f_auto,q_auto,w_900/https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405281.jpg" alt="Hotel Central bar and lounge" width="900" height="600" loading="lazy">
         </div>
     </div>
 </section>
@@ -765,7 +799,13 @@
     <div class="container">
         <div class="loc-inner">
             <div class="loc-map reveal-left">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.3!2d19.4882!3d40.4522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134534b2e5b6e7a9%3A0x1b2c3d4e5f6a7b8c!2sHotel%20Central%20Vlore!5e0!3m2!1sen!2sal!4v1700000000000" allowfullscreen loading="lazy" title="Hotel Central location"></iframe>
+                <div class="map-placeholder" id="mapPlaceholder" onclick="loadMap(this)" title="Click to load map">
+                    <div class="map-ph-inner">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>View on Map</span>
+                    </div>
+                </div>
+                <iframe id="mapFrame" class="map-frame-hidden" allowfullscreen title="Hotel Central location"></iframe>
             </div>
             <div class="loc-content reveal-right">
                 <span class="section-label" data-i18n="locLabel"></span>
@@ -793,7 +833,7 @@
                 <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405241.jpg?k=767d194d42fab0d88f3eb72e1bdd08c5b90d27e1435b7bd8c64f88d5a12f0d4e&o=" alt="Hotel Central Vlorë" loading="lazy">
             </div>
             <div class="gallery-item">
-                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405248.jpg?k=122be2032ca84a4603b27691cfca867a811b86ce3848a3066b8cf6c71ac52b29&o=" alt="Hotel Central Vlorë" loading="lazy">
+                <img src="https://res.cloudinary.com/dr63qmw21/image/fetch/f_auto,q_auto,w_900/https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405248.jpg" alt="Hotel Central Vlorë" loading="lazy">
             </div>
             <div class="gallery-item">
                 <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405121.jpg?k=35f02a277343a9da4d606b58234463ae8ff14c5389febb8479b442c2db38e091&o=" alt="Hotel Central Vlorë" loading="lazy">
@@ -802,7 +842,7 @@
                 <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/499405254.jpg?k=1d3c5b9ae32e748adda0cff0ad1af01f7bf01a3cea8de789e9522a586f0548ce&o=" alt="Hotel Central Vlorë" loading="lazy">
             </div>
             <div class="gallery-item">
-                <img src="https://res.cloudinary.com/dr63qmw21/image/upload/v1782075329/central-hotel/central-hotel-hero.jpg" alt="Hotel Central Vlorë" loading="lazy">
+                <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,w_900/v1782075329/central-hotel/central-hotel-hero.jpg" alt="Hotel Central Vlorë" width="900" height="600" loading="lazy">
             </div>
         </div>
     </div>
@@ -1019,6 +1059,15 @@ const revealObs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+</script>
+
+<script>
+function loadMap(el){
+    var fr=document.getElementById('mapFrame');
+    fr.src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.3!2d19.4882!3d40.4522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134534b2e5b6e7a9%3A0x1b2c3d4e5f6a7b8c!2sHotel%20Central%20Vlore!5e0!3m2!1sen!2sal!4v1700000000000';
+    fr.style.display='block';
+    el.style.display='none';
+}
 </script>
 </body>
 </html>
