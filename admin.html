@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Admin — Chic Boutique Hotel & Spa</title>
+    <title>Admin — Hotel Central</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --dark:   #0A0A0A;
-            --gold:   #B8973E;
-            --gold2:  #D4AF6A;
+            --gold:   #2563A8;
+            --gold2:  #4D88C8;
             --gold-bg:#F5EDD5;
             --white:  #FAFAF7;
             --bg:     #F4F1EB;
@@ -252,7 +252,7 @@
 
 <!-- LOGIN -->
 <div id="loginScreen">
-    <div class="login-logo">Chic Boutique Hotel & Spa — Vlorë</div>
+    <div class="login-logo">Hotel Central — Vlorë</div>
     <h1 class="login-title">Admin Panel</h1>
     <p class="login-sub">Enter your PIN to continue</p>
     <div class="pin-dots" id="pinDots">
@@ -315,10 +315,10 @@ const PIN = '1234'; // Change this to whatever PIN you want
 const STORAGE_KEY = 'chic_blocked';
 
 const ROOMS_CONFIG = [
-    { id:'junior',         name:'Junior Room',                  label:'Standard', maxGuests:2,  price:85  },
-    { id:'premium-triple', name:'Premium Triple with Balcony',  label:'Premium',  maxGuests:3,  price:130 },
-    { id:'deluxe-triple',  name:'Deluxe Triple with Balcony',   label:'Deluxe',   maxGuests:3,  price:160 },
-    { id:'chic-suite',     name:'Chic Suite — Sea View',        label:'Suite',    maxGuests:4,  price:240 }
+    { id:'deluxe-double',  name:'Deluxe Double Room',  label:'Deluxe',   maxGuests:2, price:59  },
+    { id:'deluxe-triple',  name:'Deluxe Triple Room',   label:'Deluxe',   maxGuests:3, price:79  },
+    { id:'economy-twin',   name:'Economy Twin Room',    label:'Standard', maxGuests:2, price:49  },
+    { id:'book-direct',    name:'Direct Booking',       label:'Enquire',  maxGuests:6, price:0   }
 ];
 
 const WEEKDAYS = ['Mo','Tu','We','Th','Fr','Sa','Su'];
@@ -562,3 +562,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
+

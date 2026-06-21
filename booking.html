@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Reserve | Chic Boutique Hotel & Spa Vlorë</title>
+    <title>Reserve | Hotel Central Vlorë</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --dark:   #0A0A0A;
-            --gold:   #B8973E;
-            --gold2:  #D4AF6A;
+            --gold:   #2563A8;
+            --gold2:  #4D88C8;
             --white:  #FAFAF7;
             --bg:     #F4F1EB;
             --muted:  #8C8880;
@@ -298,10 +298,10 @@
 // BLOCKED DATES — add "YYYY-MM-DD" per room to block
 // ================================================================
 const BLOCKED = {
-    "junior":          [],
-    "premium-triple":  [],
-    "deluxe-triple":   [],
-    "chic-suite":      []
+    "deluxe-double": [],
+    "economy-twin":   [],
+    "economy-twin":   [],
+    "book-direct":    []
 };
 
 // ================================================================
@@ -309,7 +309,7 @@ const BLOCKED = {
 // ================================================================
 const T = {
     en: {
-        steps:{ 1:'When are you arriving?', 2:'Who is joining you?', 3:'Your Chic experience', 4:'Choose your room' },
+        steps:{ 1:'When are you arriving?', 2:'Who is joining you?', 3:'Your Hotel Central experience', 4:'Choose your room' },
         months:["January","February","March","April","May","June","July","August","September","October","November","December"],
         weekdays:["Mo","Tu","We","Th","Fr","Sa","Su"],
         legSelected:"Selected", legYourStay:"Your stay", legUnavail:"Unavailable",
@@ -321,18 +321,18 @@ const T = {
         sumDates:"Dates", sumGuests:"Guests", roomsTitle:"Available rooms.",
         avgNight:"Per night", totalFor:"total for", night:"night", nights:"nights",
         guest:"guest", guests:"guests", select:"Select", overCap:"Over capacity", unavail:"Unavailable",
-        r1n:"Junior Room", r1l:"Standard",
-        r1d:"A comfortable, light-filled room with double bed, air conditioning, private bathroom and all modern amenities.",
-        r2n:"Premium Triple with Balcony", r2l:"Premium",
-        r2d:"Spacious room for three with a private balcony, air conditioning, wardrobe and shower — perfect for families.",
-        r3n:"Deluxe Triple with Balcony", r3l:"Deluxe",
-        r3d:"Our most refined triple room, featuring bathrobes, free toiletries, hairdryer, balcony and soundproof walls.",
-        r4n:"Chic Suite — Sea View", r4l:"Suite",
-        r4d:"The pinnacle of the hotel. A spacious suite with sea views, flat-screen TV, soundproof walls, minibar and coffee maker.",
-        successTitle:"Request received.", successText:"Thank you for choosing Chic Hotel & Spa. We will confirm your reservation within 24 hours.", successBack:"Return to hotel"
+        r1n:"Deluxe Double Room", r1l:"Deluxe",
+        r1d:"Extra-large double bed with balcony, air conditioning, private bathroom, free Wi-Fi. Great views of Vlore.",
+        r2n:"Deluxe Triple Room", r2l:"Deluxe",
+        r2d:"Spacious triple room for families or groups. Air conditioning, private bathroom, flat-screen TV, free Wi-Fi.",
+        r3n:"Economy Twin Room", r3l:"Standard",
+        r3d:"Twin beds, air conditioning, private bathroom with shower, flat-screen TV and free Wi-Fi. Best value.",
+        r4n:"Book Direct", r4l:"Enquire",
+        r4d:"Contact us for special requests, group bookings, or to ask about room availability and rates.",
+        successTitle:"Request received.", successText:"Thank you for choosing Hotel Central. We will confirm your reservation within 24 hours.", successBack:"Return to hotel"
     },
     sq: {
-        steps:{ 1:'Kur do të mbërrini?', 2:'Kush vjen me ju?', 3:'Përvoja juaj Chic', 4:'Zgjidhni dhomën' },
+        steps:{ 1:'Kur do të mbërrini?', 2:'Kush vjen me ju?', 3:'Përvoja juaj Hotel Central', 4:'Zgjidhni dhomën' },
         months:["Janar","Shkurt","Mars","Prill","Maj","Qershor","Korrik","Gusht","Shtator","Tetor","Nëntor","Dhjetor"],
         weekdays:["Hë","Ma","Më","En","Pr","Sh","Di"],
         legSelected:"Zgjedhur", legYourStay:"Qëndrimi juaj", legUnavail:"I padisponueshëm",
@@ -344,18 +344,18 @@ const T = {
         sumDates:"Datat", sumGuests:"Mysafirët", roomsTitle:"Dhoma të disponueshme.",
         avgNight:"Për natë", totalFor:"total për", night:"natë", nights:"net",
         guest:"mysafir", guests:"mysafirë", select:"Zgjidh", overCap:"Kapacitet i tejkaluar", unavail:"E padisponueshme",
-        r1n:"Dhomë Junior", r1l:"Standard",
+        r1n:"Dhomë Deluxe Dyshe", r1l:"Deluxe",
         r1d:"Dhomë e rehatshme me krevat dyshe, ajër të kondicionuar, banjë private me dush dhe të gjitha pajisjet moderne.",
-        r2n:"Premium Trefishe me Ballkon", r2l:"Premium",
+        r2n:"Dhomë Deluxe Trefishe", r2l:"Deluxe",
         r2d:"Dhomë e gjerë për tre persona me ballkon privat, ajër të kondicionuar dhe dush — perfekte për familje.",
-        r3n:"Deluxe Trefishe me Ballkon", r3l:"Deluxe",
+        r3n:"Dhomë Ekonomike Dyshe", r3l:"Standard",
         r3d:"Dhoma jonë trefishe më e rafinuar me robat banje, kozmetikë falas, tharëse flokësh, ballkon dhe mure me izolim.",
-        r4n:"Suite Chic — Pamje nga Deti", r4l:"Suite",
+        r4n:"Rezervo Direkt", r4l:"Pyetje",
         r4d:"Kulmi i hotelit. Suite e gjerë me pamje nga deti, TV, mure me izolim, minibar dhe makinë kafeje.",
-        successTitle:"Kërkesa u mor.", successText:"Faleminderit që zgjodhët Chic Hotel & Spa. Do të konfirmojmë rezervimin tuaj brenda 24 orëve.", successBack:"Kthehu te hoteli"
+        successTitle:"Kërkesa u mor.", successText:"Faleminderit që zgjodhët Hotel Central. Do të konfirmojmë rezervimin tuaj brenda 24 orëve.", successBack:"Kthehu te hoteli"
     },
     it: {
-        steps:{ 1:'Quando arrivate?', 2:'Chi si unisce a voi?', 3:'La vostra esperienza Chic', 4:'Scegliete la camera' },
+        steps:{ 1:'Quando arrivate?', 2:'Chi si unisce a voi?', 3:'La vostra esperienza Hotel Central', 4:'Scegliete la camera' },
         months:["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],
         weekdays:["Lu","Ma","Me","Gi","Ve","Sa","Do"],
         legSelected:"Selezionato", legYourStay:"Il tuo soggiorno", legUnavail:"Non disponibile",
@@ -367,23 +367,23 @@ const T = {
         sumDates:"Date", sumGuests:"Ospiti", roomsTitle:"Camere disponibili.",
         avgNight:"A notte", totalFor:"totale per", night:"notte", nights:"notti",
         guest:"ospite", guests:"ospiti", select:"Seleziona", overCap:"Capacità superata", unavail:"Non disponibile",
-        r1n:"Camera Junior", r1l:"Standard",
+        r1n:"Camera Deluxe Doppia", r1l:"Deluxe",
         r1d:"Camera confortevole con letto matrimoniale, aria condizionata, bagno privato con doccia e tutti i comfort moderni.",
-        r2n:"Premium Tripla con Balcone", r2l:"Premium",
+        r2n:"Camera Deluxe Tripla", r2l:"Deluxe",
         r2d:"Camera spaziosa per tre con balcone privato, aria condizionata e doccia — perfetta per famiglie o gruppi.",
-        r3n:"Deluxe Tripla con Balcone", r3l:"Deluxe",
+        r3n:"Camera Economy Doppia", r3l:"Standard",
         r3d:"La nostra camera tripla più raffinata con accappatoi, cortesia gratuita, asciugacapelli, balcone e pareti insonorizzate.",
-        r4n:"Suite Chic — Vista Mare", r4l:"Suite",
+        r4n:"Rezervo Direkt", r4l:"Pyetje",
         r4d:"Il massimo dell'hotel. Suite spaziosa con vista mare, TV a schermo piatto, pareti insonorizzate, minibar e macchinetta del caffè.",
-        successTitle:"Richiesta ricevuta.", successText:"Grazie per aver scelto Chic Hotel & Spa. Confermeremo la prenotazione entro 24 ore.", successBack:"Torna all'hotel"
+        successTitle:"Richiesta ricevuta.", successText:"Grazie per aver scelto Hotel Central. Confermeremo la prenotazione entro 24 ore.", successBack:"Torna all'hotel"
     }
 };
 
 const ROOMS = [
-    { id:"junior",         tKey:"r1", price:85,  img:"https://chicboutiquehotel.al/wp-content/uploads/2026/05/444511349.jpg",  maxGuests:2 },
-    { id:"premium-triple", tKey:"r2", price:130, img:"https://chicboutiquehotel.al/wp-content/uploads/2026/05/444510472.jpg",  maxGuests:3 },
-    { id:"deluxe-triple",  tKey:"r3", price:160, img:"https://chicboutiquehotel.al/wp-content/uploads/2026/05/444510273.jpg",  maxGuests:3 },
-    { id:"chic-suite",     tKey:"r4", price:240, img:"https://chicboutiquehotel.al/wp-content/uploads/2026/05/444510468.jpg",  maxGuests:4 }
+    { id:"deluxe-double",  tKey:"r1", price:59,  img:"https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7664deluxe-3.webp",  maxGuests:2 },
+    { id:"deluxe-triple",  tKey:"r2", price:79,  img:"https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7677Photo%20(90).webp",  maxGuests:3 },
+    { id:"economy-twin",   tKey:"r3", price:49,  img:"https://panel.bookersdesk.com/Bookersdesk/PropertyPictures/Hotel_Central223/7674Photo%20(70).webp",  maxGuests:2 },
+
 ];
 
 let lang = localStorage.getItem('lang') || 'en';
@@ -530,7 +530,7 @@ function buildRooms(){
     const locale=lang==='sq'?'sq-AL':lang==='it'?'it-IT':'en-GB';
     const ci=checkIn.toLocaleDateString(locale,{day:'numeric',month:'short'});
     const co=checkOut.toLocaleDateString(locale,{day:'numeric',month:'short'});
-    document.getElementById('roomsSub').textContent=`${ci} – ${co}  ·  ${nights} ${nights!==1?t.nights:t.night}  ·  ${totalGuests} ${totalGuests!==1?t.guests:t.guest}`;
+    document.getElementById('roomsSub').textContent=`${ci} — ${co}  ·  ${nights} ${nights!==1?t.nights:t.night}  ·  ${totalGuests} ${totalGuests!==1?t.guests:t.guest}`;
     ROOMS.forEach(room=>{
         const blocked=BLOCKED[room.id]||[];
         let unavail=false;
@@ -570,3 +570,4 @@ buildCalendars();
 </script>
 </body>
 </html>
+
